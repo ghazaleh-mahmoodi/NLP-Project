@@ -40,11 +40,11 @@ def reddit_scraper(url, number_of_scrapes, path):
     
 
 def main():
-    subreddit=[['https://www.reddit.com/r/depression.json', '0'] ,['https://www.reddit.com/r/stress.json', '0'], ['https://www.reddit.com/r/happiness.json', '1']]
+    subreddit=[['https://www.reddit.com/r/depression.json', '0'] ,['https://www.reddit.com/r/stress.json', '0'], ['https://www.reddit.com/r/happiness.json', '1'], ['https://www.reddit.com/r/success.json', '1']]
 
     for url, label in subreddit:
-        path = '../data/original/'+ label + '/' + url.replace('https://www.reddit.com/r/', '') 
-        reddit_scraper(url, 50, path)
+        path = '../data/row/'+ label + '/' + url.replace('https://www.reddit.com/r/', '') 
+        reddit_scraper(url, 5, path)
 
 
 if __name__ == '__main__':

@@ -9,21 +9,10 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import RegexpTokenizer
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
+
+# nltk.download('punkt')
 # nltk.download('wordnet')
 # nltk.download('stopwords')
-# nltk.download('punkt')
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-def compute_tfidf(word_0, word_1):
-    tfidf_vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, ngram_range=(1, 2))
-    tfidf = tfidf_vectorizer.fit_transform(word_0)
-    idf = tfidf_vectorizer.idf_
-    
-    ii = sorted(zip(idf, tfidf_vectorizer.get_feature_names()))
-    j = 0
-    for x, y in ii:
-        print(x, y)
-        if j == 10 : break
 
 
 def data_preprocessing(data):
@@ -32,7 +21,6 @@ def data_preprocessing(data):
     all_words = []
 
     #1.filling Nans
-    print("train.isnull().sum()", data.isnull().sum())
     data.fillna("IS NULL", inplace=True)
 
     #find word
@@ -57,8 +45,9 @@ def data_preprocessing(data):
         
         words_lemmatizer = [lemmatizer.lemmatize(i) for i in tokenized_text]
         
-        words_without_stop = [i for i in words_lemmatizer if i not in stopwords.words("english")]
+        words_without_stop = [i for i in words_lemmatizer if i not in stopwords.words("english") and "_" not in i]
         
+
         #5.extract words
         all_words.extend(words_without_stop)
 
@@ -78,19 +67,22 @@ def sentence_broken(input_row):
 
     sentences = []
     for t in tokens:
-        if t != "" : sentences.append(t)
+        sentences.append(t)
     
     return sentences
 
 def main():
     
     print("data cleaning start :")
+    
     cleand_data = pd.DataFrame()
+    
     for label in ['0', '1']:
+        
         word_per_label = []
         sentences_per_label = []
         
-        path = '../data/' + '/original/' + label + '/*'
+        path = '../data/' + '/row/' + label + '/*'
 
         for file_name in glob.glob(path):
             print(file_name)
@@ -102,24 +94,20 @@ def main():
             sentences_per_label.extend(all_sentences)
             
             data = data[["label", "title","selftext_clean", "author", "score","url", "selftext"]]
-            dest_path = file_name.replace('original', 'cleaned')
-            data.to_json(dest_path, indent=4)
             cleand_data = cleand_data.append(data, ignore_index=True)
         
         output_path = '../data/' + '/sentence_broken/' + label+"_sentences.txt"
+        
         with open(output_path, "w", encoding="utf8") as f:
-            f.write("\n".join(str(sen) for item in sentences_per_label for sen in item))
+            f.write("\n".join(str(sen).replace('\n', '').replace('*', '') for item in sentences_per_label for sen in item if len(sen) > 1))
 
 
         output_path = '../data/' + '/word_broken/' + label +" _words.txt"
         with open(output_path, "w", encoding="utf8") as f:
-            f.write("\n".join([str(x) for x in word_per_label]) + '\n')
+            f.write("\n".join([str(x).replace('\n', '').replace('*', '') for x in word_per_label]) + '\n')
 
-
-        print("len(set(word_per_label))", len(set(word_per_label)))
     
     path = '../data/' + '/cleaned/data_cleand.json'
-    # cleand_data = pd.DataFrame(cleand_data)
     cleand_data.to_json(path, indent=4)
 
 if __name__ == '__main__':

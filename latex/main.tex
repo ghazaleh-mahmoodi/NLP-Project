@@ -1,6 +1,7 @@
 %!TEX TS-program = xelatex
 \documentclass[10pt]{article}
 \usepackage{amsmath,amssymb,amsfonts} % Typical maths resource packages
+\usepackage{float}
 \usepackage{graphics}                 % Packages to allow inclusion of graphics
 \usepackage{color}                    % For creating coloured text and background
 \usepackage{hyperref}
@@ -164,13 +165,11 @@
 	
 	\item happiness
 	
-	\lr{i feel so}
-	\lr{like losing grow shell remember hate suck suck fucked cant}\color{blue}
+	\lr{i feel so .. like losing grow shell remember hate suck suck fucked cant}
 	
 	\item depression
 	
-	\lr{i feel so}
-	\lr{like edgy movie mind hold supportive defense trash sea man}\color{blue}
+	\lr{i feel so .. like edgy movie mind hold supportive defense trash sea man}
 \end{itemize}
 
 	
@@ -210,14 +209,14 @@
  \lr{happiness}
 به صورت شکل\ref{GPT_hap}
 می‌باشد.
-	\begin{figure}[ht!]
+	\begin{figure}[H]
 		\centering\includegraphics[width=\linewidth]{../reports/loss_history_GPT2_depression.png}
 		\caption{ 
 			\lr{distilgpt2 Loss language model on class depression}}
 		\label{GPT_dep}
 	\end{figure}
 	
-		\begin{figure}[ht!]
+		\begin{figure}[H]
 		\centering\includegraphics[width=\linewidth]{../reports/loss_history_GPT2_happiness.png}
 		\caption{ 
 			\lr{distilgpt2 Loss language model on class happiness}}

@@ -35,7 +35,7 @@ class Config(object):
     data_path = './data'
     train_file = 'train.conll'
     dev_file = 'dev.conll'
-    test_file = 'test.conll'
+    test_file = 'project_data_test.conll'
     embedding_file = './data/en-cw.txt'
 
 
@@ -237,7 +237,7 @@ class Parser(object):
         return labels
 
     def parse(self, dataset, eval_batch_size=5000):
-        print("yohoooooo")
+        print(dataset)
         sentences = []
         sentence_id_to_idx = {}
         for i, example in enumerate(dataset):
@@ -245,13 +245,12 @@ class Parser(object):
             sentence = [j + 1 for j in range(n_words)]
             sentences.append(sentence)
             sentence_id_to_idx[id(sentence)] = i
-            break
-        
-        print("sentences : ", sentences)
+
         model = ModelWrapper(self, dataset, sentence_id_to_idx)
         dependencies = minibatch_parse(sentences, model, eval_batch_size)
-        print("dependencies : ", dependencies)
+
         UAS = all_tokens = 0.0
+        
         with tqdm(total=len(dataset)) as prog:
             for i, ex in enumerate(dataset):
                 head = [-1] * len(ex['word'])
@@ -259,12 +258,16 @@ class Parser(object):
                     head[t] = h
                 for pred_h, gold_h, gold_l, pos in \
                         zip(head[1:], ex['head'][1:], ex['label'][1:], ex['pos'][1:]):
+                        # print("pred_h : ",pred_h)
+                        # print("gold_h : ",gold_h)
                         assert self.id2tok[pos].startswith(P_PREFIX)
                         pos_str = self.id2tok[pos][len(P_PREFIX):]
-                        print("pos_str : ", pos_str )
                         if (self.with_punct) or (not punct(self.language, pos_str)):
                             UAS += 1 if pred_h == gold_h else 0
                             all_tokens += 1
+                        else:
+                            print("pred_h : ",pred_h)
+                            print("gold_h : ",gold_h)
                 prog.update(i + 1)
         UAS /= all_tokens
         return UAS, dependencies

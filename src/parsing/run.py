@@ -53,8 +53,9 @@ def train(parser, train_data, dev_data, output_path, batch_size=1024, n_epochs=1
     ###     Adam Optimizer: https://pytorch.org/docs/stable/optim.html
     ###     Cross Entropy Loss: https://pytorch.org/docs/stable/nn.html#crossentropyloss
 
-    optimizer = torch.optim.Adam(parser.model.parameters(), lr=lr)
-    loss_func = nn.CrossEntropyLoss(reduction='mean')
+    optimizer = optim.Adam(parser.model.parameters())
+    loss_func = nn.CrossEntropyLoss()
+
 
     ### END YOUR CODE
 
@@ -107,11 +108,12 @@ def train_for_epoch(parser, train_data, dev_data, optimizer, loss_func, batch_si
             ### Please see the following docs for support:
             ###     Optimizer Step: https://pytorch.org/docs/stable/optim.html#optimizer-step
 
-
             logits = parser.model.forward(train_x)
-            loss = loss_func(logits, train_y)
+            loss = loss_func(logits,train_y)
+
             loss.backward()
             optimizer.step()
+
 
             ### END YOUR CODE
             prog.update(1)
@@ -141,16 +143,17 @@ if __name__ == "__main__":
     parser.model = model
     print("took {:.2f} seconds\n".format(time.time() - start))
 
-    print(80 * "=")
-    print("TRAINING")
-    print(80 * "=")
+    # print(80 * "=")
+    # print("TRAINING")
+    # print(80 * "=")
+    # output_dir = "results/{:%Y%m%d_%H%M%S}/".format(datetime.now())
     output_dir = "results/20210426_131835/"
     output_path = output_dir + "model.weights"
 
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    # if not os.path.exists(output_dir):
+    #     os.makedirs(output_dir)
 
-    train(parser, train_data, dev_data, output_path, batch_size=1024, n_epochs=10, lr=0.0005)
+    # train(parser, train_data, dev_data, output_path, batch_size=1024, n_epochs=10, lr=0.0005)
 
     if not debug:
         print(80 * "=")
@@ -161,5 +164,6 @@ if __name__ == "__main__":
         print("Final evaluation on test set",)
         parser.model.eval()
         UAS, dependencies = parser.parse(test_data)
+        print("dependencies : ",dependencies)
         print("- test UAS: {:.2f}".format(UAS * 100.0))
         print("Done!")

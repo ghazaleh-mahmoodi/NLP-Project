@@ -20,7 +20,7 @@ def prepare_data(label_code = 0):
     path = '../data/' + '/cleaned/data_cleand.json'
     df = pd.read_json(path)
     df = df[df.label == label_code]
-    df = df['selftext']
+    df = df['selftext_clean']
     
     sequences = list()
 

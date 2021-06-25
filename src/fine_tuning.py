@@ -313,7 +313,8 @@ def plot(trainer, training_args, model_, label=''):
                     step_size=training_args.logging_steps, use_title='Loss', 
                     use_xlabel='Train Steps', use_ylabel='Values', magnify=2, path='../reports/loss_history_{}.png'.format(model_))
     except:
-        print("no plot :( ")
+        print("there is errror with plot")
+
     if args.model_type == 'GPT2':
         plt.style.use('ggplot')
 

@@ -1,0 +1,9 @@
+1       I    PRON    PRON  ...    2   nsubj     _              _
+2    feel    feel    VERB  ...    0    ROOT     _              _
+3      so      so     ADV  ...    4  advmod     _              _
+4  lonely  lonely     ADJ  ...    2   acomp     _              _
+5     and     and   CCONJ  ...    4      cc     _              _
+6   empty   empty     ADJ  ...    4    conj     _              _
+7   right   right     ADV  ...    8  advmod     _              _
+8     now     now     ADV  ...    2  advmod     _  SpaceAfter=No
+9       .       .   PUNCT  ...    2   punct     _  SpaceAfter=No

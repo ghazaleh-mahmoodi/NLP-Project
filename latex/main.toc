@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1} \lr {word2vec} }{5}{section.1}%
+\contentsline {section}{\numberline {2} \lr {tokenization} }{6}{section.2}%
+\contentsline {section}{\numberline {3} \lr {parsing} }{7}{section.3}%
+\contentsline {section}{\numberline {4} \lr {language model}}{8}{section.4}%
+\contentsline {section}{\numberline {5} \lr {finu tuning} }{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}\lr {language model}}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}\lr {classification}}{11}{subsection.5.2}%
+\contentsline {section}{\numberline {6}منابع}{13}{section.6}%

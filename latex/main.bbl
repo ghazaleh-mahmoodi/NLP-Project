@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{devlin-etal-2019-bert}
+J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova, ``{BERT}: Pre-training of
+  deep bidirectional transformers for language understanding,'' in {\em
+  Proceedings of the 2019 Conference of the North {A}merican Chapter of the
+  Association for Computational Linguistics: Human Language Technologies,
+  Volume 1 (Long and Short Papers)}, (Minneapolis, Minnesota), pp.~4171--4186,
+  Association for Computational Linguistics, June 2019.
+
+\bibitem{Tan2020}
+H.~Tan and M.~Bansal, ``{LXMert: Learning cross-modality encoder
+  representations from transformers},'' {\em EMNLP-IJCNLP 2019 - 2019
+  Conference on Empirical Methods in Natural Language Processing and 9th
+  International Joint Conference on Natural Language Processing, Proceedings of
+  the Conference}, pp.~5100--5111, 2020.
+
+\end{thebibliography}

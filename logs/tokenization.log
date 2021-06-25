@@ -1,0 +1,26 @@
+INFO:numexpr.utils:NumExpr defaulting to 4 threads.
+INFO:root:in iteration 1 vocab_size 60 : unk token count 7
+INFO:root:in iteration 2 vocab_size 60 : unk token count 6
+INFO:root:in iteration 3 vocab_size 60 : unk token count 9
+INFO:root:in iteration 4 vocab_size 60 : unk token count 8
+INFO:root:in iteration 5 vocab_size 60 : unk token count 5
+INFO:root:in iteration 1 vocab_size 500 : unk token count 8
+INFO:root:in iteration 2 vocab_size 500 : unk token count 7
+INFO:root:in iteration 3 vocab_size 500 : unk token count 3
+INFO:root:in iteration 4 vocab_size 500 : unk token count 5
+INFO:root:in iteration 5 vocab_size 500 : unk token count 12
+INFO:root:in iteration 1 vocab_size 1000 : unk token count 11
+INFO:root:in iteration 2 vocab_size 1000 : unk token count 7
+INFO:root:in iteration 3 vocab_size 1000 : unk token count 6
+INFO:root:in iteration 4 vocab_size 1000 : unk token count 6
+INFO:root:in iteration 5 vocab_size 1000 : unk token count 12
+INFO:root:in iteration 1 vocab_size 2000 : unk token count 6
+INFO:root:in iteration 2 vocab_size 2000 : unk token count 4
+INFO:root:in iteration 3 vocab_size 2000 : unk token count 8
+INFO:root:in iteration 4 vocab_size 2000 : unk token count 6
+INFO:root:in iteration 5 vocab_size 2000 : unk token count 8
+INFO:root:in iteration 1 vocab_size 5000 : unk token count 6
+INFO:root:in iteration 2 vocab_size 5000 : unk token count 9
+INFO:root:in iteration 3 vocab_size 5000 : unk token count 8
+INFO:root:in iteration 4 vocab_size 5000 : unk token count 8
+INFO:root:in iteration 5 vocab_size 5000 : unk token count 8

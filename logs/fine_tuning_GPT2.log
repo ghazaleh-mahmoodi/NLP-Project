@@ -1,0 +1,65 @@
+INFO:root:There are 1 GPU(s) available.
+INFO:root:Start prepare data
+INFO:filelock:Lock 139841291095792 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 139841291095792 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 139841265798056 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:filelock:Lock 139841265798056 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:root:Time to prepare : 0.0 mins
+INFO:root:Start Trainig
+INFO:root:Time to train the model: 5.1 mins
+INFO:root:Start Evaluation
+INFO:root:Time to train the model: 0.01 mins
+INFO:root:Hi, we have created a success forum for people struggling find meaning happiness happy work group                     feel tired tired feel tired feel something try something trying new something new
+INFO:root:I'm so depressed. I have nothing to live life right now except trying sit idly moment like today probably best thing ever happen life already happen moment life already happened moment everything already happen live present moment live today every moment lead u live present whatever desire
+INFO:root:There are 1 GPU(s) available.
+INFO:root:Start prepare data
+INFO:filelock:Lock 140141293098208 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140141293098208 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140146356291344 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:filelock:Lock 140146356291344 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:root:Time to prepare : 0.0 mins
+INFO:root:Start Trainig
+INFO:root:Time to train the model: 1.03 mins
+INFO:root:Start Evaluation
+INFO:root:Time to train the model: 0.01 mins
+INFO:root:Hi, we have created a success forum for people interested interested    know help support success success want like like get rich life           know want give give want give back give want give know want give take
+INFO:root:I'm so depressed. I have nothing to live like two people like that time ago and everything felt normal today really worked like ever since even though everyone else would take back everything back everything right moment every morning would feel like day today felt normal today feel
+INFO:root:Start prepare data
+INFO:filelock:Lock 140140909028408 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140140909028408 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140141651227760 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:filelock:Lock 140141651227760 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:root:Time to prepare : 0.0 mins
+INFO:root:Start Trainig
+INFO:root:Time to train the model: 1.02 mins
+INFO:root:Start Evaluation
+INFO:root:Time to train the model: 0.01 mins
+INFO:root:Hi, we have created a success forum for people interested interested    know going want succeed going want fail people want know go past time never successful people want know go past time know succeeding people want know go past time life lived time lived past moment
+INFO:root:I'm so depressed. I have nothing to live like two people say like crazy thing say everything said nothing said anything anything said anything actually meant anything else meant anything meant nothing meant anything anything meant anything else never truly meant anything know want need understand needed know
+INFO:root:There are 1 GPU(s) available.
+INFO:root:Start prepare data
+INFO:filelock:Lock 140210410347264 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140210410347264 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140210203455440 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:filelock:Lock 140210203455440 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:root:Time to prepare : 0.0 mins
+INFO:root:Start Trainig
+INFO:root:Time to train the model: 1.04 mins
+INFO:root:Start Evaluation
+INFO:root:Time to train the model: 0.01 mins
+WARNING:matplotlib.legend:No handles with labels found to put in legend.
+INFO:root:Hi, we have created a success forum for people interested interested    know help support success success want like like get rich life           know want give give want give back give want give know want give take
+INFO:root:I'm so depressed. I have nothing to live like two people like that time ago and everything felt normal today really worked like ever since even though everyone else would take back everything back everything right moment every morning would feel like day today felt normal today feel
+INFO:root:Start prepare data
+INFO:filelock:Lock 140209838761576 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140209838761576 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_train_dataset.txt.lock
+INFO:filelock:Lock 140209827741648 acquired on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:filelock:Lock 140209827741648 released on ../data/GPT2/cached_lm_GPT2Tokenizer_128_test_dataset.txt.lock
+INFO:root:Time to prepare : 0.0 mins
+INFO:root:Start Trainig
+INFO:root:Time to train the model: 0.97 mins
+INFO:root:Start Evaluation
+INFO:root:Time to train the model: 0.01 mins
+WARNING:matplotlib.legend:No handles with labels found to put in legend.
+INFO:root:Hi, we have created a success forum for people interested interested    know going want succeed going want fail people want know go past time never successful people want know go past time know succeeding people want know go past time life lived time lived past moment
+INFO:root:I'm so depressed. I have nothing to live like two people say like crazy thing say everything said nothing said anything anything said anything actually meant anything else meant anything meant nothing meant anything anything meant anything else never truly meant anything know want need understand needed know

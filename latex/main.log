@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.5.20)  26 JUN 2021 08:11
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.5.20)  26 JUN 2021 08:35
 entering extended mode
 **./main.tex
 (main.tex
@@ -696,10 +696,17 @@ LaTeX Font Warning: Font shape `TU/XBNiloofar.ttf(0)/b/n' undefined
 File: ../reports/tokenization.png Graphic file (type bmp)
 <../reports/tokenization.png>
 
-Overfull \hbox (22.82852pt too wide) in paragraph at lines 120--125
+Overfull \hbox (22.82852pt too wide) in paragraph at lines 120--127
 [][]\TU/XBNiloofar.ttf(0)/b/n/10 همچنین نتایج به صورت متن در []\TU/lmroman10-re
 gular(0)/m/n/10 reports/tokenization.txt[] \TU/XBNiloofar.ttf(0)/b/n/10 و log ب
 رنامه در []\TU/lmroman10-regular(0)/m/n/10 logs/tokenization.log[][]
+ []
+
+
+Overfull \hbox (22.76816pt too wide) in paragraph at lines 120--127
+[]\TU/XBNiloofar.ttf(0)/b/n/10 موجود است. برای اجرا آزمایش‌ها و ذخیره مدل نهایی
+ در پوشه مورد نظر کافیست []\TU/lmroman10-regular(0)/m/n/10 python3 tokenization
+.py[][]
  []
 
 [6]
@@ -720,12 +727,12 @@ File: ../reports/loss_history_GPT2_depression.png Graphic file (type bmp)
 File: ../reports/loss_history_GPT2_happiness.png Graphic file (type bmp)
 <../reports/loss_history_GPT2_happiness.png>
  [10]
-Underfull \hbox (badness 10000) in paragraph at lines 286--288
+Underfull \hbox (badness 10000) in paragraph at lines 290--292
 [][][][][][]
  []
 
 
-\endL or \endR problem (0 missing, 3 extra) in paragraph at lines 300--301
+\endL or \endR problem (0 missing, 3 extra) in paragraph at lines 304--305
 [][][][][] 
  []
 

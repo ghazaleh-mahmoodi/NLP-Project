@@ -20,11 +20,7 @@ def experiment():
     path = '../../data/cleaned/data_cleand.json'
     data = pd.read_json(path)['selftext_clean'].to_numpy()
 
-    # train_data, test_data = train_test_split(data, test_size=0.2)
     train_path = "train_data.txt"
-    
-    # with open(train_path, "w", encoding="utf8") as f:
-    #     f.write("\n".join(train_data))
     
     list_vocab_size = [60, 500, 2000, 5000, 10067]
     
@@ -45,7 +41,7 @@ def experiment():
             with open(train_path, "w", encoding="utf8") as f:
                 f.write("\n".join(train_data))
 
-            source = '../../models/tokenization/tokenization_{}_vocabsize__iteration_{}.model'.format(vocab_size, iteration)
+            source = 'working_dir/tokenization_{}_vocabsize__iteration_{}.model'.format(vocab_size, iteration)
             
             spm.SentencePieceTrainer.train(input=train_path, model_prefix=source, vocab_size=vocab_size, unk_id=3, model_type='word')     # train the spm model
             sp = spm.SentencePieceProcessor()                                                               # create an instance; this saves .model and .vocab files 
@@ -73,6 +69,7 @@ def experiment():
         re.append(avg)
         str_result += "Average vocab_size {} is {} \n \n".format(vocab_size, avg)
 
+    #final report
     with open('../../reports/tokenization.txt', "w", encoding="utf8") as f:
         f.write(str_result)
     
@@ -82,7 +79,21 @@ def experiment():
     dfi.export(df, '../../reports/tokenization.png')
 
 def best_tokenization():
-    pass
+    path = '../../data/cleaned/data_cleand.json'
+    data = pd.read_json(path)['selftext_clean'].to_numpy()
+
+    train_path = "train_data.txt"
+    train_data, _ = train_test_split(data, test_size=0.2)
+    
+    with open(train_path, "w", encoding="utf8") as f:
+                f.write("\n".join(train_data))
+
+    source = '../../models/tokenization/tokenization_best_model'
+    
+    spm.SentencePieceTrainer.train(input=train_path, model_prefix=source, vocab_size=10067, unk_id=3, model_type='word')     # train the spm model
+    sp = spm.SentencePieceProcessor()                                                               # create an instance; this saves .model and .vocab files 
+
+    sp.load('{}.model'.format(source))
 
 def main():
     experiment()

@@ -102,3 +102,32 @@ INFO:root:in iteration 5 vocab_size 10067 : unk token count 1057 , percent 2.36
 DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
 DEBUG:PIL.PngImagePlugin:STREAM b'sRGB' 41 1
 DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 54 8192
+INFO:numexpr.utils:NumExpr defaulting to 4 threads.
+INFO:root:in iteration 1 vocab_size 60 : unk token count 10191 , percent 42.39
+INFO:root:in iteration 2 vocab_size 60 : unk token count 9193 , percent 42.5
+INFO:root:in iteration 3 vocab_size 60 : unk token count 8751 , percent 42.58
+INFO:root:in iteration 4 vocab_size 60 : unk token count 9053 , percent 42.49
+INFO:root:in iteration 5 vocab_size 60 : unk token count 8531 , percent 42.31
+INFO:root:in iteration 1 vocab_size 500 : unk token count 11636 , percent 25.67
+INFO:root:in iteration 2 vocab_size 500 : unk token count 10350 , percent 25.47
+INFO:root:in iteration 3 vocab_size 500 : unk token count 9850 , percent 25.49
+INFO:root:in iteration 4 vocab_size 500 : unk token count 10050 , percent 25.16
+INFO:root:in iteration 5 vocab_size 500 : unk token count 9530 , percent 25.4
+INFO:root:in iteration 1 vocab_size 2000 : unk token count 6237 , percent 11.91
+INFO:root:in iteration 2 vocab_size 2000 : unk token count 5581 , percent 11.88
+INFO:root:in iteration 3 vocab_size 2000 : unk token count 5246 , percent 11.76
+INFO:root:in iteration 4 vocab_size 2000 : unk token count 5388 , percent 11.65
+INFO:root:in iteration 5 vocab_size 2000 : unk token count 5060 , percent 11.69
+INFO:root:in iteration 1 vocab_size 5000 : unk token count 3071 , percent 5.71
+INFO:root:in iteration 2 vocab_size 5000 : unk token count 2699 , percent 5.6
+INFO:root:in iteration 3 vocab_size 5000 : unk token count 2547 , percent 5.57
+INFO:root:in iteration 4 vocab_size 5000 : unk token count 2609 , percent 5.5
+INFO:root:in iteration 5 vocab_size 5000 : unk token count 2497 , percent 5.62
+INFO:root:in iteration 1 vocab_size 10067 : unk token count 1372 , percent 2.54
+INFO:root:in iteration 2 vocab_size 10067 : unk token count 1196 , percent 2.47
+INFO:root:in iteration 3 vocab_size 10067 : unk token count 1131 , percent 2.46
+INFO:root:in iteration 4 vocab_size 10067 : unk token count 1126 , percent 2.36
+INFO:root:in iteration 5 vocab_size 10067 : unk token count 1057 , percent 2.36
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sRGB' 41 1
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 54 8192

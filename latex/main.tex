@@ -12,7 +12,7 @@
 \settextfont{XB Niloofar.ttf}
 \hypersetup{
 	colorlinks=true,
-	linkcolor=black,
+	linkcolor=blue,
 	filecolor=magenta,      
 	urlcolor=cyan,
 	pdftitle={Overleaf Example},
@@ -43,15 +43,12 @@
 	\lr{word2vec}
 }
 در این بخش قصد داریم با استفاده از ماژول gensim بردار
-\lr{word 2 vec}
-  را برای هر کلمه حساب کنیم.
-ابتدا لازم است دیتاست را برای استفاده آماده کنیم. به کمک pandas و نظرات موجود را استخراج می کنیم. در نهایت DataFrame به صورت زیر حاصل می شود.
+\lr{word2vec}
+  را برای هر کلمه حساب کنیم. 
 
-
-در ادامه به ازای تمام نظرات(جملات) موجود در دیتاست کلمات موجود در آن ها را استخراج می کنیم. این کار با استفاده از tokenizer ماژول HAZM انجام می دهیم. 
-
-
-برای به دست آوردن word2vev به کمک Gensim تعدادی پارامتر قابل تنظیم دارد که در ادامه به بررسی آن ها می پردازم.
+برای به دست آوردن
+\lr{word2vec}
+ به کمک Gensim تعدادی پارامتر قابل تنظیم دارد که در ادامه به بررسی آن ها می پردازم.
 
 \begin{itemize}
 	\item Size 
@@ -70,34 +67,87 @@
 	 مورد توجه قرار می گیرد و در غیر این صورت کنار گذاشته می شود. تعیین این عدد در دیتاست های بزرگ برای کنار گذاشتن کلمات کم اهمیت که غالبا کم تکرار می شوند مناسب است. همچنین در مصرف بهینه مموری و حافظه هم تاثیر دارد.
 	
 	 
-	\item Workers
 	
-	این پارامتر تعداد thread هایی که در عملیات اجرا مورد استفاده قرار می گیرد را مشخص می کند. برای عملیات بهینه سازی و افزایش سرعت اجرا در سیستم هایی که قابلیت پردازش موازی دارند.
-	
-	 
-	\item Iter
-	
-	تعداد epoch یا دفعاتی که الگوریتم اجرا می شود و مدل آموزش می بیند.
-	 
-	\item seed 
-	
-	برای مقدار دهی رندوم اولیه استفاده می شود.
 \end{itemize}
-\iffalse	
-\begin{figure}[ht!]
-		\centering\includegraphics[width=\linewidth]{../reports/word_vectors_common_happiness.png}
-		\caption{شبکه 
-			\lr{language model}}
-		\label{word2vec-1}
+
+\subsection{بررسی
+\lr{bias}
+}
+در بخش بعدی آزمایش‌ها، احتمال وجود bias در دیتاست مورد بررسی قرار گرفت.
+برای این منظور مشابهت‌های مقابل مورد بررسی قرار گرفت.
+\begin{flushleft}
+\lr{woman as doctor similar as man as ?}
+\end{flushleft}
+
+که خروجی به صورت شکل\ref{word2vec-man} شد.
+
+	
+\begin{figure}[H]
+		\centering\includegraphics[width=0.3\linewidth]{../reports/word2vec/bias-man.png}
+		\caption{ 
+			\lr{woman as doctor similar as man as ?}}
+		\label{word2vec-man}
+	\end{figure}
+در ادامه برای پیدا کردن bias احتمالی بین زن و مرد در این دیتاست به ازای ورودی زیر اجرا را تکرار کردیم. خروجی به صورت شکل\ref{word2vec-woman} شد. 
+\begin{flushleft}
+\lr{man as doctor similar to woman as ?}
+\end{flushleft}
+
+	\begin{figure}[H]
+	\centering\includegraphics[width=0.3\linewidth]{../reports/word2vec/bias-woman.png}
+	\caption{ 
+		\lr{man as doctor similar to woman as ?}}
+	\label{word2vec-woman}
 	\end{figure}
 
-	\begin{figure}[ht!]
-	\centering\includegraphics[width=\linewidth]{../reports/_word_vectors_common_man.png}
-	\caption{شبکه 
-		\lr{language model}}
-	\label{word2vec-2}
-	\end{figure}
-\fi
+همان‌طور که در گزارشات مطرح شده به وضوح مشخص است این دیتا برای جنسیت خانم‌ها و آقایان bias دارد. در مورد اول اگر شغل زن را دکتر فرض کنیم، مدل برای مرد شغل روان‌پزشک که شاخه‌ای از پزشکی است را انتخاب می‌کند. اما در آزمایش دوم هنگامی که شغل مرد را دکتر در نظر می‌گیریم، برای شعل زن mum را انتخاب می‌کند. گرچه مادری از جایگاه بالایی برخوردار است اما در اینجا نشان‌دهنده bias بر روی جنسیت می‌باشد.
+
+\subsection{بررسی بردار‌های کلمات مشابه  در کلاس‌های مختلف
+}
+
+در این بخش بردار‌های کلمات مشترک در دو دسته
+\lr{depresion}
+و
+\lr{happiness}
+ را مورد بررسی قرار دادیم. در این آزمایش برای بردار‌ها 
+\lr{cosine similarity}
+را محاسبه کردیم. اگر دو بردار کاملا یکسان باشند مقدار
+\lr{cosine similarity}
+برابر با 1 یا نزدیک به 1 می‌شود و در غیر این صورت مقادیر کوچک تر از 1 می‌باشد. نتیجه محاسبه 
+\lr{cosine similarity}
+برای چند کلمه مشترک بین دسته‌ها به صورت شکل\ref{cosine_similarity} است.
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.5\linewidth]{../reports/word2vec/cosine_similarity.png}
+	\caption{ 
+		\lr{cosine similarity common words}}
+	\label{cosine_similarity}
+\end{figure}
+
+همان‌طور که مشخص است اکثر کلمات یکسان در دسته‌های مختلف بردار‌های متفاوتی دارد. دلیل این امر این است که با توجه به context که کلمه در هر کلاس آمده، بردار مورد نظر به دست آمده است. با توجه به اینکه کلمات در متن‌های متفاوتی هستند پس بردار‌های متفاوتی برای آن‌ها وجود دارد.
+
+در ادامه کلمات مشترک کلاس‌های مختلف 
+\lr{10 most similarr words}
+را برای کلمه life بررسی کردیم و بردار 64 بعدی را در نمودار 2 بعدی نمایش دادیم. 10 کلمه برتر کلاس
+\lr{depresion}
+در شکل\ref{most_sim_dep} و 10 کلمه برتر کلاس
+\lr{happiness}
+در شکل\ref{most_sim_hpa} می‌باشد.
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.6\linewidth]{../reports/word2vec/depression_life_most_similar_word.png}
+	\caption{بردار 10 کلمات مشابه 
+		\lr{life}}
+	\label{most_sim_dep}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\includegraphics[width=0.6\linewidth]{../reports/word2vec/happiness_life_most_similar_word.png}
+	\caption{بردار 10 کلمات مشابه 
+		\lr{life}}
+	\label{most_sim_hpa}
+\end{figure}
+
 \newpage
 \section{
 	\lr{tokenization}
@@ -105,11 +155,12 @@
 
 در این قسمت ابتدا پنج 
 \lr{vocab size}
-برای tokenize کردن داده انتخاب می‌کنیم. دیتا را به پنج بخش تقسیم کرده و در هر مرحله آزمایش یک بخش به عنوان داده ارزیابی و چهار بخش باقی مانده را به عنوان داده آموزشی در نظر می‌گیریم. به ازای هر
+برای tokenize کردن داده انتخاب می‌کنیم. دیتا را به پنج بخش تقسیم کرده و در هر مرحله آزمایش، یک بخش به عنوان داده ارزیابی و چهار بخش باقی مانده را به عنوان داده آموزشی در نظر می‌گیریم. به ازای هر
 \lr{vocab size}
-پنج بار آزمایش را تکرار می‌کنیم. که در هر مرحله یک بخش به عنوان داده ارزیابی و چهار بخش باقی مانده را به عنوان داده آموزشی در نظر می‌گیریم. در این بخش tokenize در مرحله word اجرا می‌شود و  id توکن unk عدد سه در نظر گرفته شده است.	 در انتها تعداد توکن‌های unk را به ازای
+در این بخش tokenize در مرحله word اجرا می‌شود و  id توکن unk عدد سه در نظر گرفته شده است.	 پنج بار آزمایش انجام می‌دهیم. مدل رت روی داده‌های آموزشی train کرده ودر انتها تعداد توکن‌های unk را به ازای
 \lr{vocab size}
-های مختلف بررسی می‌کنیم. نتایج به دست آمده در شکل\ref{tok} قابل مشاهده است. با هر بار اجرا مجدد کد در صورتی که تغییری در نتایج به وجود بیاید شکل\ref{tok} به صورت اتوماتیک آپدیت می‌شود.
+های مختلف بر روی داده ارزیابی بررسی می‌کنیم. نتایج به دست آمده در شکل\ref{tok} قابل مشاهده است. 
+
 \begin{figure}[ht!]
 	\centering\includegraphics[width=\linewidth]{../reports/tokenization.png}
 	\caption{
@@ -174,12 +225,13 @@
 	\lr{100 hidden state}
 	قرار دارد. لایه دیگری
 	\lr{bidirectional LSTM}
-	و در ادامه یک لایه dense قرار دارد. لایه انتهایی یک لایه dense یا تابع فعال‌سازی softmax می‌باشد که به تعداد همه کلمات موجود نورون دارد. در این لایه به ازای ورودی شبکه مشخص می‌شود چه کلمه باید بعد از عبارت ورودی شبکه بیاید.
+	و در ادامه یک لایه dense قرار دارد. لایه انتهایی یک لایه dense با تابع فعال‌سازی softmax می‌باشد که به تعداد همه کلمات موجود نورون دارد. در این لایه به ازای ورودی شبکه مشخص می‌شود چه کلمه باید بعد از عبارت ورودی شبکه بیاید.
 	مدل تعریف شده به صورت شکل\ref{lm}
-	می‌باشد. دقت و loss برای کلاس‌های مختلف به صورت شکل\ref{lm_dep} و شکل\ref{lm_hap} است. با توجه به حذف stopwords و punctuation از جمله و کم‌بودن مشکلاتی در جمله بندی مدل آموزش دیده وجود دارد که در جملات ساخته شده به وضوح مشخص است. عدم وجود I , am , are و حروف اضافه‌ای همچون is, thst در زمان تمیز کردن دیتا باعث شده چنین جملاتی به وجود بیایند.
+	می‌باشد. دقت و loss برای کلاس‌های مختلف به صورت شکل\ref{lm_dep} و شکل\ref{lm_hap} است. 
+
 	
 		\begin{figure}[ht!]
-		\centering\includegraphics[width=\linewidth]{../reports/lm_model.png}
+		\centering\includegraphics[width=0.8\linewidth]{../reports/lm_model.png}
 		\caption{شبکه 
 			\lr{language model}}
 		\label{lm}
@@ -187,19 +239,20 @@
 	
 	
 	\begin{figure}[ht!]
-		\centering\includegraphics[width=\linewidth]{../reports/lm_dep.png}
+		\centering\includegraphics[width=0.9\linewidth]{../reports/lm_dep.png}
 		\caption{ 
 			\lr{LSTM accuracy and Loss language model on class depression}}
 		\label{lm_dep}
 	\end{figure}
 
 	\begin{figure}[ht!]
-		\centering\includegraphics[width=\linewidth]{../reports/lm_hap.png}
+		\centering\includegraphics[width=0.9\linewidth]{../reports/lm_hap.png}
 		\caption{
 			\lr{LSTM accuracy and Loss language model on class happiness}}
 		\label{lm_hap}
 	\end{figure}
 
+با توجه به حذف stopwords و punctuation از جمله و کم‌بودن دیتا برای آموزش یک مدل زبانی مناسب، مشکلاتی در نحوه جمله بندی و قواعد گرامری جمله ساخته شده توسط مدل وجود دارد. عدم وجود I , am , are و حروف اضافه‌ای همچون is, thst در زمان تمیز کردن دیتا باعث شده چنین جملاتی به وجود بیایند. از طرفی شبکه آموزش دیده pretrain نبوده و برای اولین بار آموزش می بیند و برای آموزش بهتر نیاز به دیتا بسیار بیشتری از حجم دیتا فعلی دارد.
 
 \begin{itemize}
 	\item happiness
@@ -329,11 +382,13 @@
 \section{منابع}
 
 \begin{flushleft}
+	\url{https://www.kaggle.com/pierremegret/gensim-word2vec-tutorial}
 	\url{https://radimrehurek.com/gensim/models/word2vec.html}
 	%\url{https://colab.research.google.com/github/google/sentencepiece/blob/master/python/sentencepiece\_python\_module\_example.ipynb#scrollTo=T9BDzLVkUFT4
 	\url{https://www.philschmid.de/fine-tune-a-non-english-gpt-2-model-with-huggingface}
 	\url{https://machinelearningmastery.com/how-to-develop-a-word-level-neural-language-model-in-keras/}
 	\url{https://gmihaila.github.io/tutorial_notebooks/pretrain_transformers_pytorch/}
+	\url{https://stackoverflow.com/questions/52277384/calculation-of-cosine-similarity-of-a-single-word-in-2-different-word2vec-models}
 \end{flushleft}
 
 \end{document}

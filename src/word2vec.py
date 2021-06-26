@@ -1,3 +1,4 @@
+from math import exp
 from gensim.models.word2vec import Word2Vec
 from gensim.models import KeyedVectors
 from numpy.core.fromnumeric import shape
@@ -10,6 +11,8 @@ import pandas as pd
 import numpy as np
 import logging
 from time import time
+import dataframe_image as dfi
+plt.style.use('ggplot')
 
 logging.basicConfig(filename='../logs/word2vec.log',  level=logging.DEBUG)
 labels = {2 : "ALL", 1 : "happiness", 0 : "depression"}
@@ -30,6 +33,74 @@ def train_word_word2vec(source_sentences, des_path, vector_size=64, window=3, mi
 
     word_vectors = model.wv
     word_vectors.save("{}.wordvectors".format(des_path))   
+
+def tsnescatterplot(label, model, word, list_names):
+    """ Plot in seaborn the results from the t-SNE dimensionality reduction algorithm of the vectors of a query word,
+    its list of most similar words, and a list of words.
+    """
+    arrays = np.empty((0, 64), dtype='f')
+    word_labels = [word]
+    color_list  = ['red']
+
+    # adds the vector of the query word
+    arrays = np.append(arrays, model.wv.__getitem__([word]), axis=0)
+    
+    # adds the vector for each of the words from list_names to the array
+    for wrd in list_names:
+        try:
+            wrd_vector = model.wv.__getitem__([wrd])
+            word_labels.append(wrd)
+            color_list.append('green')
+            arrays = np.append(arrays, wrd_vector, axis=0)
+        except:
+            print([wrd])
+        
+    # Reduces the dimensionality from 64 to 20 dimensions with PCA
+    reduc = PCA(n_components=len(list_names)).fit_transform(arrays)
+    
+    # Finds t-SNE coordinates for 2 dimensions
+    np.set_printoptions(suppress=True)
+    
+    Y = TSNE(n_components=2, random_state=0, perplexity=15).fit_transform(reduc)
+    
+    # Sets everything up to plot
+    df = pd.DataFrame({'x': [x for x in Y[:, 0]],
+                       'y': [y for y in Y[:, 1]],
+                       'words': word_labels,
+                       'color': color_list})
+    
+    fig, _ = plt.subplots()
+    fig.set_size_inches(9, 9)
+    
+    # Basic plot
+    p1 = sns.regplot(data=df,
+                     x="x",
+                     y="y",
+                     fit_reg=False,
+                     marker="o",
+                     scatter_kws={'s': 40,
+                                  'facecolors': df['color']
+                                 }
+                    )
+    
+    # Adds annotations one by one with a loop
+    for line in range(0, df.shape[0]):
+         p1.text(df["x"][line],
+                 df['y'][line],
+                 '  ' + df["words"][line].title(),
+                 horizontalalignment='left',
+                 verticalalignment='bottom', size='medium',
+                 color=df['color'][line],
+                 weight='normal'
+                ).set_size(15)
+
+    
+    plt.xlim(Y[:, 0].min()-50, Y[:, 0].max()+50)
+    plt.ylim(Y[:, 1].min()-50, Y[:, 1].max()+50)
+            
+    plt.title('t-SNE visualization for {}'.format(word.title()))
+    plt.savefig('../reports/word2vec/{}_{}_most_similar_word.png'.format(label, word))
+    plt.cla()
 
 def tsne_scatter_plot(model, word):
     """ Plot in seaborn the results from the t-SNE dimensionality reduction algorithm of the vectors of a query word,
@@ -199,44 +270,52 @@ def save_word2vec_model():
         logging.info("save {}.model".format(des_path))
 
 def bias_experimnt(source = "All"):
-    # pass
+    logging.info('bias experiment')
+
     model = Word2Vec.load('../models/word2vec/{}.word2vec.model'.format(source))
-    # print(model.wv.most_similar('psychology', topn=15))
-    print(model.wv.most_similar(positive=['woman', 'sad'], negative=['man']))
-    print(model.wv.most_similar(positive=['man', 'sad'], negative=['woman']))
+    
+    result = model.wv.most_similar(positive=['woman', 'doctor'], negative=['man'])
+    df = pd.DataFrame(result, columns=['word', 'score'])
+    dfi.export(df, '../reports/word2vec/bias-man.png')
 
-def intersection_word_vector_experiment():
-    pass
+    result = model.wv.most_similar(positive=['man', 'doctor'], negative=['woman'])
+    
+    df = pd.DataFrame(result, columns=['word', 'score'])
+    dfi.export(df, '../reports/word2vec/bias-woman.png')
 
-# def CosineDistance(model, word, target_list, count):
-#     cosine_dict ={}
-#     word_list = []
-#     a = model[word]
+def calculate_cosine_similarity(word, model_hap, model_dep):
 
-#     for item in target_list:
-#         if item != word:
-#             b = model [item]
-#             cos_sim = dot(a, b)/(norm(a)*norm(b))
-#             # cos_sim = distance.cosine(a, b)
-#             cosine_dict[item] = cos_sim
+    vec_hap = model_hap.wv[word]
+    vec_dep = model_dep.wv[word]
+    
+    cossine_similarity = np.sum(vec_hap*vec_dep)/(np.linalg.norm(vec_hap)*np.linalg.norm(vec_dep))
+    
+    return cossine_similarity
 
-#     dist_sort=sorted(cosine_dict.items(), key=lambda dist: dist[1],reverse = True) ## in Descedning order 
-#     for item in dist_sort:
-#         word_list.append((item[0], item[1]))
-
-#     return word_list[: count]
 
 def main():
 
-    save_word2vec_model()
+    #step 1. learning
+    # save_word2vec_model()
+
+    #step 2. find bias
     # bias_experimnt()
-    w2v_model_0 = KeyedVectors.load("../models/word2vec/depression.word2vec.model", mmap='r')
-    w2v_model_1 = KeyedVectors.load("../models/word2vec/happiness.word2vec.wordvectors", mmap='r')
-    tsne_scatter_plot(w2v_model_0, "man")
+
+    #step 3. compare vector
+    model_hap = Word2Vec.load('../models/word2vec/happiness.word2vec.model')
+    model_dep = Word2Vec.load('../models/word2vec/depression.word2vec.model')
+    # vector_cossine_similarity_result = {}
+    # words = ['working', 'time', 'able', 'good', 'depression', 'life', 'believe', 'anxiety', 'human', 'beautiful']
+    # for word in words:
+    #     vector_cossine_similarity_result[word] = calculate_cosine_similarity(word, model_hap, model_dep)
     
-    w2v_model_0 = KeyedVectors.load("../models/word2vec/depression.word2vec.wordvectors", mmap='r')
-    w2v_model_1 = KeyedVectors.load("../models/word2vec/happiness.word2vec.wordvectors", mmap='r')
-    plot_similar(w2v_model_0, w2v_model_1, word='happiness')
+    # df = pd.DataFrame(list(vector_cossine_similarity_result.items()), columns=['word', 'cosine similarity value'])
+    # dfi.export(df, '../reports/word2vec/cosine_similarity.png')
+    
+    #step 4. find most similar word    
+    tsnescatterplot('happiness', model_hap, 'life', [t[0] for t in model_hap.wv.most_similar(positive=["life"], topn=10)])
+    tsnescatterplot('depression',model_dep, 'life', [t[0] for t in model_dep.wv.most_similar(positive=["life"], topn=10)])
+
 
 
 if __name__ == '__main__':

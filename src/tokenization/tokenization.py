@@ -1,14 +1,7 @@
-import glob
-from numpy.core.arrayprint import _void_scalar_repr
 import pandas as pd
 import sentencepiece as spm
 from sklearn.model_selection import train_test_split, ShuffleSplit
 import dataframe_image as dfi
-
-# Python program to get average of a list
-# Using mean()
-  
-# importing mean()
 from statistics import mean
 
 import logging

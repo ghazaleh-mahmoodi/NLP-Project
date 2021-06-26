@@ -37,56 +37,13 @@ INFO:root:classifier.bias                                                 (2,)
 INFO:root:Start prepare data
 INFO:root:Time to prepare : 0.01 mins
 INFO:root:Start Trainig
-INFO:root:Time to train the model: 66.44 mins
+INFO:root:Time to train the model: 16.47 mins
 INFO:root:Start Evaluation
-INFO:root:Time to train the model: 0.45 mins
-WARNING:matplotlib.legend:No handles with labels found to put in legend.
-INFO:root:There are 1 GPU(s) available.
-INFO:root:The BERT model has 201 different named parameters.
-
-INFO:root:==== Embedding Layer ====
-
-INFO:root:bert.embeddings.word_embeddings.weight                  (30522, 768)
-INFO:root:bert.embeddings.position_embeddings.weight                (512, 768)
-INFO:root:bert.embeddings.token_type_embeddings.weight                (2, 768)
-INFO:root:bert.embeddings.LayerNorm.weight                              (768,)
-INFO:root:bert.embeddings.LayerNorm.bias                                (768,)
-INFO:root:
-==== First Transformer ====
-
-INFO:root:bert.encoder.layer.0.attention.self.query.weight          (768, 768)
-INFO:root:bert.encoder.layer.0.attention.self.query.bias                (768,)
-INFO:root:bert.encoder.layer.0.attention.self.key.weight            (768, 768)
-INFO:root:bert.encoder.layer.0.attention.self.key.bias                  (768,)
-INFO:root:bert.encoder.layer.0.attention.self.value.weight          (768, 768)
-INFO:root:bert.encoder.layer.0.attention.self.value.bias                (768,)
-INFO:root:bert.encoder.layer.0.attention.output.dense.weight        (768, 768)
-INFO:root:bert.encoder.layer.0.attention.output.dense.bias              (768,)
-INFO:root:bert.encoder.layer.0.attention.output.LayerNorm.weight        (768,)
-INFO:root:bert.encoder.layer.0.attention.output.LayerNorm.bias          (768,)
-INFO:root:bert.encoder.layer.0.intermediate.dense.weight           (3072, 768)
-INFO:root:bert.encoder.layer.0.intermediate.dense.bias                 (3072,)
-INFO:root:bert.encoder.layer.0.output.dense.weight                 (768, 3072)
-INFO:root:bert.encoder.layer.0.output.dense.bias                        (768,)
-INFO:root:bert.encoder.layer.0.output.LayerNorm.weight                  (768,)
-INFO:root:bert.encoder.layer.0.output.LayerNorm.bias                    (768,)
-INFO:root:
-==== Output Layer ====
-
-INFO:root:bert.pooler.dense.weight                                  (768, 768)
-INFO:root:bert.pooler.dense.bias                                        (768,)
-INFO:root:classifier.weight                                           (2, 768)
-INFO:root:classifier.bias                                                 (2,)
-INFO:root:Start prepare data
-INFO:root:Time to prepare : 0.01 mins
-INFO:root:Start Trainig
-INFO:root:Time to train the model: 66.43 mins
-INFO:root:Start Evaluation
-INFO:root:Time to train the model: 0.45 mins
+INFO:root:Time to train the model: 0.3 mins
 INFO:root:input text => I feel like my depression took my entire teen years from me. I spent all my free time in high school crying and self harming at home while everyone else had friends and hobbies and went to parties.
 INFO:root:predicted lable for input text => depression
 INFO:root:input text => Hello people of reddit, I'm in a dilemma. I feel like I need to reinvent myself. I'm very happy with my gf (not a problem), my family is ok, sometimes we have problems but you got to deal with it sometimes. 
-INFO:root:predicted lable for input text => depression
+INFO:root:predicted lable for input text => happiness
 INFO:root:input text => I have some of those friends but some of them take life a joke and it gets annoying.
 
 I feel like I need to improve my current situation. I want a more mature friend group, I want to move out of my parents house but I work in a minimum wage job. I'm in major which I feel is bs unless I go to law school (political science, I chose it because I'm terrible at math and I love the political realm). a part of me wants to open up a small business but I don't know where to start. I'm stuck in a rut, I was very consistent with working out but for the past months I messed up my wrist, had my wisdom teeth pulled out, and got sick so it hasn't exactly been the best situation lol.

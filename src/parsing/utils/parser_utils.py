@@ -32,11 +32,11 @@ class Config(object):
     use_pos = True
     use_dep = True
     use_dep = use_dep and (not unlabeled)
-    data_path = './data'
+    data_path = 'parsing/data'
     train_file = 'train.conll'
     dev_file = 'dev.conll'
     test_file = 'project_data_test.conll'
-    embedding_file = './data/en-cw.txt'
+    embedding_file = 'parsing/data/en-cw.txt'
 
 
 class Parser(object):

@@ -1,8 +1,7 @@
 # import tensorflow as tf
+from pickle import load, dump
 import pandas as pd
 from numpy import array
-from random import randint, seed
-from pickle import load, dump
 from nltk import word_tokenize
 from keras.models import load_model, Sequential
 from keras.preprocessing.text import Tokenizer

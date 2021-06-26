@@ -147,7 +147,7 @@ if __name__ == "__main__":
     print("TRAINING")
     print(80 * "=")
     
-    output_dir = "results/last/"
+    output_dir = "parsing/results/last/"
     output_path = output_dir + "model.weights"
 
     if not os.path.exists(output_dir):
@@ -164,6 +164,8 @@ if __name__ == "__main__":
         print("Final evaluation on test set",)
         parser.model.eval()
         UAS, dependencies = parser.parse(test_data)
-        print("dependencies : ",dependencies)
+        # print("dependencies : ",dependencies)
+        # print("len dependencies : ",len(dependencies))
+        # print("len dependencies : ",[len(i) for i in dependencies])
         print("- test UAS: {:.2f}".format(UAS * 100.0))
         print("Done!")

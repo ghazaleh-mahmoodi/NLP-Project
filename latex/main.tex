@@ -36,8 +36,8 @@
 \listoffigures
 \newpage
 
-\listoftables
-\newpage
+%\listoftables
+%\newpage
 	
 \section{ 
 	\lr{word2vec}
@@ -46,25 +46,25 @@
 \lr{word2vec}
   را برای هر کلمه حساب کنیم. 
 
-برای به دست آوردن
+دست آوردن
 \lr{word2vec}
  به کمک Gensim تعدادی پارامتر قابل تنظیم دارد که در ادامه به بررسی آن ها می پردازم.
 
 \begin{itemize}
 	\item Size 
 	
-	این پارامتر تعیین کننده سایز vector برای نمایش هر word یا token است. هر چه دیتاست محدود تر و کوچکتر باشد این عدد نیز کوچک تر در نظر گرفته می شود و هر چه دیتاست بزرگتر باشد(کلمات unique بیشتری داشته باشد) باید اندازه vector بزرگتر در نظر گرفته شود. تجربه نشان داده اندازه بین 100 تا 150 برای دیتاست های بزرگ مقدار مناسبی است.
+	این پارامتر تعیین کننده سایز vector برای نمایش هر word یا token است. هر چه دیتاست محدود تر و کوچک‌تر باشد این عدد نیز کوچک‌تر در نظر گرفته می شود و هر چه دیتاست بزرگ‌تر باشد(کلمات unique بیشتری داشته باشد) باید اندازه vector بزرگ‌تر در نظر گرفته شود. تجربه نشان داده اندازه بین 100 تا 150 برای دیتاست‌های بزرگ مقدار مناسبی است.
 	
 	\item Windows 
 	
-	این پارامتر تعیین کننده بیشترین فاصله مابین کلمه اصلی و همسایه های آن می باشد.از لحاظ تئوری هر چه این سایز کوچکتر باشد کلماتی که بیشتر ارتباط را به یکدیگر دارند به عنوان خروجی برمی گرداند. اگر تعداد داده به اندازه کافی بزرگ باشد سایز پنجره اهمیت زیادی ندارد اما باید این نکته را در نظر گرفت که این سایز نباید خیلی بزرگ یا بیش از حد کوچک باشد. اگر درباره انتخاب آن اطمینان نداریم بهتر است از مقدار پیش فرض استفاده کنیم.
+	این پارامتر تعیین کننده بیشترین فاصله مابین کلمه اصلی و همسایه‌های آن می‌باشد.از لحاظ تئوری هر چه این سایز کوچکتر باشد کلماتی که بیشترین ارتباط معنایی را به یکدیگر دارند به عنوان خروجی برمی گرداند. اگر تعداد داده به اندازه کافی بزرگ باشد سایز پنجره اهمیت زیادی ندارد اما باید این نکته را در نظر گرفت که این سایز نباید خیلی بزرگ یا بیش از حد کوچک باشد. اگر درباره انتخاب آن اطمینان نداریم بهتر است از مقدار پیش فرض استفاده کنیم.
 	
 	
 	\item \lr{Min count}
 	
-	این پارامتر حداقل تکرار کلمه در دیتاست را نشان می دهد که در صورتی که کلمه ای به این تعداد تکرار شود در
+	این پارامتر حداقل تکرار کلمه در دیتاست را نشان می‌دهد که در صورتی که کلمه ای به این تعداد تکرار شود در
 	\lr{word embedding}
-	 مورد توجه قرار می گیرد و در غیر این صورت کنار گذاشته می شود. تعیین این عدد در دیتاست های بزرگ برای کنار گذاشتن کلمات کم اهمیت که غالبا کم تکرار می شوند مناسب است. همچنین در مصرف بهینه مموری و حافظه هم تاثیر دارد.
+	 مورد توجه قرار می‌گیرد و در غیر این صورت کنار گذاشته می‌شود. تعیین این عدد در دیتاست‌های بزرگ برای کنار گذاشتن کلمات کم اهمیت که غالبا کم تکرار می‌شوند مناسب است. همچنین در مصرف بهینه مموری و حافظه هم تاثیر دارد.
 	
 	 
 	
@@ -73,7 +73,7 @@
 \subsection{بررسی
 \lr{bias}
 }
-در بخش بعدی آزمایش‌ها، احتمال وجود bias در دیتاست مورد بررسی قرار گرفت.
+در این بخش احتمال وجود bias در دیتاست مورد بررسی قرار گرفت.
 برای این منظور مشابهت‌های مقابل مورد بررسی قرار گرفت.
 \begin{flushleft}
 \lr{woman as doctor similar as man as ?}
@@ -126,13 +126,14 @@
 
 همان‌طور که مشخص است اکثر کلمات یکسان در دسته‌های مختلف بردار‌های متفاوتی دارد. دلیل این امر این است که با توجه به context که کلمه در هر کلاس آمده، بردار مورد نظر به دست آمده است. با توجه به اینکه کلمات در متن‌های متفاوتی هستند پس بردار‌های متفاوتی برای آن‌ها وجود دارد.
 
-در ادامه کلمات مشترک کلاس‌های مختلف 
+در ادامه بررسی کلمات مشترک کلاس‌های مختلف 
 \lr{10 most similarr words}
 را برای کلمه life بررسی کردیم و بردار 64 بعدی را در نمودار 2 بعدی نمایش دادیم. 10 کلمه برتر کلاس
 \lr{depresion}
 در شکل\ref{most_sim_dep} و 10 کلمه برتر کلاس
 \lr{happiness}
 در شکل\ref{most_sim_hpa} می‌باشد.
+
 
 \begin{figure}[H]
 	\centering\includegraphics[width=0.6\linewidth]{../reports/word2vec/depression_life_most_similar_word.png}
@@ -173,7 +174,9 @@
 و log برنامه در 
 \lr{logs/tokenization.log}
 موجود است. برای اجرا آزمایش‌ها و ذخیره مدل نهایی در پوشه مورد نظر کافیست 
-\lr{python3 tokenization.py}
+
+\lr{python tokenization/tokenization.py}
+
 اجرا شود.
 
 همان‌طور که انتظار می‌رفت با افزایش تعداد
@@ -189,9 +192,11 @@
 \lr{dependency parser}
 را بر روی زبان انگلیسی آموزش داده و تعدادی جمله از دیتاست را انتخاب کرده و parse متناظر با آن‌ها را به صورت دستی نوشته و به عنوان فایل تست، قرار می‌دهیم. فایل تست تولید شده در 
 \lr{src/parsing/data/project\_data\_test.conll}
-قابل مشاهده است (شکل\ref{dep_parser_test}).
+قابل مشاهده است (شکل\ref{dep_parser_test}). اجرا برنامه به کمک دستور
+\lr{python parsing/run.py}
+میسر می‌باشد.
 \begin{figure}[ht!]
-	\centering\includegraphics[width=\linewidth]{../reports/dep_parser_test.png}
+	\centering\includegraphics[width=0.7\linewidth]{../reports/dep_parser_test.png}
 	\caption{
 		\lr{correct dependency parser}}
 	\label{dep_parser_test}
@@ -201,13 +206,26 @@
 \lr{dependency parser}
 را به طور کامل درست تشخیص داده است.
 \begin{figure}[ht!]
-	\centering\includegraphics[width=\linewidth]{../reports/dep_parser_1.png}
+	\centering\includegraphics[width=0.8\linewidth]{../reports/dep_parser_1.png}
 	\caption{
 		\lr{correct dependency parser}}
 	\label{dep_parser}
 \end{figure}
 
-نکته‌‌ای که در ساخت فایل conll بسیار مهم است و باید بدان توجه شود این است که بین موارد نوشته شده باید یک tab فاصله باشد و در صورت عدم رعایت این فاصله جملات توسط parser به صورت اشتباه خوانده می‌شوند.
+نکته‌‌ای که در ساخت فایل conll بسیار مهم است و باید بدان توجه شود این است که بین موارد نوشته شده باید یک tab فاصله باشد و در صورت عدم رعایت این فاصله جملات توسط parser به صورت اشتباه خوانده می‌شوند. 
+پس از اجرا تست
+\lr{test UAS: 80.00}
+به دست آمد. مدل در جملات پیچیده و گاها با دو فعل (و یا جملات ساده‌ای که در داده‌های آموزشی نباشند) در تشخیص root دچار مشکل شده و اشتباهات به صورت سلسله‌وار به وجود می‌آید.
+
+به عنوان مثال در جمله
+\lr{not sure what to do.}
+واژه not را به عنوان root در نظر گرفته در صورتی که پارس صحیح جمله به صورت شکل\ref{dep_parser_2} است.
+\begin{figure}[ht!]
+	\centering\includegraphics[width=0.7\linewidth]{../reports/dep_parser_2.png}
+	\caption{
+		\lr{correct dependency parser}}
+	\label{dep_parser_2}
+\end{figure}
 \newpage
 \section{
 	\lr{language model}}
@@ -258,23 +276,38 @@
 	\item happiness
 	
 	\lr{take break outside lunch feel like everyone office hate think boring
-		since forced office romantic vacation friend friend whole money laying}
+		\textcolor{blue}{since forced office romantic vacation friend friend whole money laying}}
 	
-	\item happiness
+	\item depression
 	 
 	\lr{kill prayed god make accident happen year old relationship family know
-		remember im told reminds friend something really eventually wa using}
+		\textcolor{blue}{remember im told reminds friend something really eventually wa using}}
 	
 	\item happiness
 	
-	\lr{i feel so .. like losing grow shell remember hate suck suck fucked cant}
+	\lr{i feel so \textcolor{blue}{like losing grow shell remember hate suck suck fucked cant}}
 	
 	\item depression
 	
-	\lr{i feel so .. like edgy movie mind hold supportive defense trash sea man}
+	\lr{i feel so \textcolor{blue}{like edgy movie mind hold supportive defense trash sea man}}
 \end{itemize}
 
-	
+برای اجرا این بخش کافیست
+\lr{python language\_model.py}
+را اجرا کنید.
+به ازای هر کدام از کلاس‌های 
+\lr{depresion}
+و
+\lr{happiness}
+مدل را finetune کرده و وزن‌های حاصله به صورت اتوماتیک در
+\lr{models/language\_model/depression\_language\_model.h5}
+و
+
+\lr{models/language\_model/happiness\_language\_model.h5}
+ذخیره می‌شوند. همچنین log در حین اجرا در 
+\lr{logs/language\_model.log}
+قابل مشاهده هست.
+
 \newpage
 \section{
 	\lr{finu tuning}
@@ -290,7 +323,7 @@
 به عنوان مدل pretrain استفاده کرده و مدل را بر دیتاست موجود finetune کردم.
 
 برای اجرا این بخش کافیست
-\lr{python3 fine\_tuning.py GPT2}
+\lr{python fine\_tuning.py GPT2}
 را اجرا کنید.
 به ازای هر کدام از کلاس‌های 
 \lr{depresion}
@@ -335,33 +368,35 @@
 	\item happiness
 	
 	\lr{Hi, we have created a success forum for
-		since forced office romantic vacation friend friend whole money laying}
-	
-	
-	\item happiness
-	
-	\lr{Hi, we have created a success forum for}
-	\lr{people interested interested    know going want succeed going want fail people want know go past time never successful people want know go past time know succeeding people want know go past time life lived time lived past moment}\color{blue}\\
-	
-	
-	\item happiness
-	
-	\lr{I'm so depressed. I have nothing to live
-		remember im told reminds friend something really eventually wa using}
+		\textcolor{blue}{people interested interested    know help support success success want like like get rich life           know want give give want give back give want give know want give take}}
 	
 	
 	\item depression
 	
-	\lr{I'm so depressed. I have nothing to live}
-	\lr{like edgy movie mind hold supportive defense trash sea man}\color{blue}
+	\lr{Hi, we have created a success forum for
+	\textcolor{blue}{people interested interested    know going want succeed going want fail people want know go past time never successful people want know go past time know succeeding people want know go past time life lived time lived past moment}}
+	
+	
+	\item happiness
+	
+	\lr{I'm so depressed. I have nothing to live\textcolor{blue}{
+		 people like that time ago and everything felt normal today really worked like ever since even though everyone else would take back everything back everything right moment every morning would feel like day today felt normal today feel}}
+	
+	
+	\item depression
+	
+	\lr{I'm so depressed. I have nothing to live\textcolor{blue}{
+	 like two people say like crazy thing say everything said nothing said anything anything said anything actually meant anything else meant anything meant nothing meant anything anything meant anything else never truly meant anything know want need understand needed know}}
 \end{itemize}
+
+نکته قابل تامل این است که حجم دیتا depression نسبت به happiness اندکی بیشتر است و به نظر می‌رسد این موضوع نحوه آموزش تاثیر گذاشته است.  همچنین عملکرد مدل GPT برای ساخت جملات طولانی بهتر از LSTM می‌باشد.
 
 \subsection{\lr{classification}}
 در بخش دوم مدل 
 \lr{bert-base-uncased}
 از قبل آموزش دیده را برای classification داده‌ها بر روی داده‌های موجود finetune می‌کنیم. 
 برای اجرا این بخش کافیست
-\lr{python3 fine\_tuning.py Bert}
+\lr{python fine\_tuning.py Bert}
 را اجرا کرد. وزن‌های مدل finetune شده در 
 \lr{models/bert\_classification\_lm}
 ذخیره می‌شوند. همچنین log در حین اجرا در 
@@ -376,6 +411,34 @@
 	\label{bert}
 \end{figure}
 
+نمونه خروجی classification به ازای 4 جمله ورودی در
+\lr{logs/fine\_tuning\_Bert.log}
+موجود می‌باشد.
+\newpage
+
+\section{ نحوه اجرا پروژه}
+
+
+برای آماده‌سازی کامپیوتر شخصی برای اجرا پروژه ابتدا لازم است با اجرا دستور زیر envirment مورد نیاز را ساخته و آن را فعال کنیم.
+
+\begin{flushleft}
+	\lr{conda env create -f local\_env.yml}
+	\\
+	\lr{conda activate project\_env}
+\end{flushleft}
+
+در ادامه برای اجرا کلیه مراحل فاز پایانی پروژه کافیست کامند زیر را اجرا کنید.
+اجرا در سیستم عامل لینوکس با درستور
+\begin{flushleft}
+	\lr{sh run.sh}
+\end{flushleft}
+
+و بر روی ویندوز با دستور
+\begin{flushleft}
+	\lr{(windows) run.bat}
+\end{flushleft}
+
+می‌باشد. راهنمای اجرا هر بخش از پروژه در قسمت مربوط به آن موجود می‌باشد.
 
 \newpage
 
@@ -389,6 +452,7 @@
 	\url{https://machinelearningmastery.com/how-to-develop-a-word-level-neural-language-model-in-keras/}
 	\url{https://gmihaila.github.io/tutorial_notebooks/pretrain_transformers_pytorch/}
 	\url{https://stackoverflow.com/questions/52277384/calculation-of-cosine-similarity-of-a-single-word-in-2-different-word2vec-models}
+	\url{http://stanza.run/}
 \end{flushleft}
 
 \end{document}

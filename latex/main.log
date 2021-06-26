@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.5.20)  26 JUN 2021 13:04
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.5.20)  26 JUN 2021 22:03
 entering extended mode
 **./main.tex
 (main.tex
@@ -688,75 +688,62 @@ LaTeX Font Warning: Font shape `TU/XBNiloofar.ttf(0)/b/n' undefined
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [3] (main.lot)
-\tf@lot=\write6
-\openout6 = `main.lot'.
-
- [4]
+ [3]
 File: ../reports/word2vec/bias-man.png Graphic file (type bmp)
 <../reports/word2vec/bias-man.png>
- [5]
+ [4]
 File: ../reports/word2vec/bias-woman.png Graphic file (type bmp)
 <../reports/word2vec/bias-woman.png>
- [6]
+ [5]
 File: ../reports/word2vec/cosine_similarity.png Graphic file (type bmp)
 <../reports/word2vec/cosine_similarity.png>
 File: ../reports/word2vec/depression_life_most_similar_word.png Graphic file (t
 ype bmp)
 <../reports/word2vec/depression_life_most_similar_word.png>
- [7]
+ [6]
 File: ../reports/word2vec/happiness_life_most_similar_word.png Graphic file (ty
 pe bmp)
 <../reports/word2vec/happiness_life_most_similar_word.png>
- [8]
+ [7]
 File: ../reports/tokenization.png Graphic file (type bmp)
 <../reports/tokenization.png>
 
-Overfull \hbox (22.82852pt too wide) in paragraph at lines 171--178
+Overfull \hbox (22.82852pt too wide) in paragraph at lines 172--177
 [][]\TU/XBNiloofar.ttf(0)/b/n/10 همچنین نتایج به صورت متن در []\TU/lmroman10-re
 gular(0)/m/n/10 reports/tokenization.txt[] \TU/XBNiloofar.ttf(0)/b/n/10 و log ب
 رنامه در []\TU/lmroman10-regular(0)/m/n/10 logs/tokenization.log[][]
  []
 
-
-Overfull \hbox (22.76816pt too wide) in paragraph at lines 171--178
-[]\TU/XBNiloofar.ttf(0)/b/n/10 موجود است. برای اجرا آزمایش‌ها و ذخیره مدل نهایی
- در پوشه مورد نظر کافیست []\TU/lmroman10-regular(0)/m/n/10 python3 tokenization
-.py[][]
- []
-
-[9]
+[8]
 File: ../reports/dep_parser_test.png Graphic file (type bmp)
 <../reports/dep_parser_test.png>
 File: ../reports/dep_parser_1.png Graphic file (type bmp)
 <../reports/dep_parser_1.png>
- [10]
+File: ../reports/dep_parser_2.png Graphic file (type bmp)
+<../reports/dep_parser_2.png>
+ [9]
 File: ../reports/lm_model.png Graphic file (type bmp)
 <../reports/lm_model.png>
 File: ../reports/lm_dep.png Graphic file (type bmp)
 <../reports/lm_dep.png>
 File: ../reports/lm_hap.png Graphic file (type bmp)
 <../reports/lm_hap.png>
- [11] [12]
+ [10]
+Overfull \hbox (1.31366pt too wide) in paragraph at lines 306--310
+[][][]\TU/lmroman10-regular(0)/m/n/10 models/language_model/happiness_language_
+model.h5[] \TU/XBNiloofar.ttf(0)/b/n/10 ذخیره می‌شوند. همچنین[]
+ []
+
+[11]
 File: ../reports/loss_history_GPT2_depression.png Graphic file (type bmp)
 <../reports/loss_history_GPT2_depression.png>
 File: ../reports/loss_history_GPT2_happiness.png Graphic file (type bmp)
 <../reports/loss_history_GPT2_happiness.png>
- [13]
-Underfull \hbox (badness 10000) in paragraph at lines 343--345
-[][][][][][]
- []
-
-
-\endL or \endR problem (0 missing, 3 extra) in paragraph at lines 357--358
-[][][][][] 
- []
-
-[14]
+ [12] [13]
 File: ../reports/loss_history_Bert.png Graphic file (type bmp)
 <../reports/loss_history_Bert.png>
- [15]
-Overfull \hbox (81.0pt too wide) in paragraph at lines 385--392
+ [14] [15]
+Overfull \hbox (81.0pt too wide) in paragraph at lines 448--456
 [][][][][]$[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][]$[][][][][][][] 
@@ -767,15 +754,15 @@ Overfull \hbox (81.0pt too wide) in paragraph at lines 385--392
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1CCD76563AA5C4A5326A10B4D92D18AD;1452.
+(rerunfilecheck)             Checksum: 290D5C0B4A1C32C8A42EF0FE12600E7A;1624.
  ) 
 Here is how much of TeX's memory you used:
- 13406 strings out of 411578
- 256322 string characters out of 2834568
+ 13409 strings out of 411578
+ 256522 string characters out of 2834568
  703189 words of memory out of 3000000
- 33293 multiletter control sequences out of 15000+600000
+ 33298 multiletter control sequences out of 15000+600000
  410318 words of font info for 77 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 88i,8n,95p,1017b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 88i,8n,95p,1017b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (16 pages).

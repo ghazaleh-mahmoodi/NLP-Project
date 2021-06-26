@@ -143,15 +143,15 @@ if __name__ == "__main__":
     parser.model = model
     print("took {:.2f} seconds\n".format(time.time() - start))
 
-    # print(80 * "=")
-    # print("TRAINING")
-    # print(80 * "=")
-    # output_dir = "results/{:%Y%m%d_%H%M%S}/".format(datetime.now())
-    output_dir = "results/20210426_131835/"
+    print(80 * "=")
+    print("TRAINING")
+    print(80 * "=")
+    
+    output_dir = "results/last/"
     output_path = output_dir + "model.weights"
 
-    # if not os.path.exists(output_dir):
-    #     os.makedirs(output_dir)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
     # train(parser, train_data, dev_data, output_path, batch_size=1024, n_epochs=10, lr=0.0005)
 

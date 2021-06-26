@@ -83,8 +83,8 @@
 	
 	برای مقدار دهی رندوم اولیه استفاده می شود.
 \end{itemize}
-	
-	\begin{figure}[ht!]
+\iffalse	
+\begin{figure}[ht!]
 		\centering\includegraphics[width=\linewidth]{../reports/word_vectors_common_happiness.png}
 		\caption{شبکه 
 			\lr{language model}}
@@ -97,17 +97,62 @@
 		\lr{language model}}
 	\label{word2vec-2}
 	\end{figure}
-
+\fi
 \newpage
 \section{
 	\lr{tokenization}
 }
 
+در این قسمت ابتدا پنج 
+\lr{vocab size}
+برای tokenize کردن داده انتخاب می‌کنیم. دیتا را به پنج بخش تقسیم کرده و در هر مرحله آزمایش یک بخش به عنوان داده ارزیابی و چهار بخش باقی مانده را به عنوان داده آموزشی در نظر می‌گیریم. به ازای هر
+\lr{vocab size}
+پنج بار آزمایش را تکرار می‌کنیم. که در هر مرحله یک بخش به عنوان داده ارزیابی و چهار بخش باقی مانده را به عنوان داده آموزشی در نظر می‌گیریم. در این بخش tokenize در مرحله word اجرا می‌شود و  id توکن unk به دستی عدد سه در نظر گرفته شده است. در انتها تعداد توکن‌های unk را به ازای
+\lr{vocab size}
+های مختلف بررسی می‌کنیم. نتایج به دست آمده در شکل\ref{tok} قابل مشاهده است. با هر بار اجرا مجدد کد در صورتی که تغییری در نتایج به وجود بیاید شکل\ref{tok} به صورت اتوماتیک آپدیت می‌شود.
+\begin{figure}[ht!]
+	\centering\includegraphics[width=\linewidth]{../reports/tokenization.png}
+	\caption{
+		\lr{correct dependency parser}}
+	\label{tok}
+\end{figure}
+
+همچنین نتایج به صورت متن در
+\lr{reports/tokenization.txt}
+و log برنامه در 
+\lr{logs/tokenization.log}
+موجود است.
+
+همان‌طور که مشاهده می‌شود در
 \newpage
+
 \section{
 	\lr{parsing}
 }
 
+در این قسمت به کمک کد تمرین 3 مدل
+\lr{dependency parser}
+را بر روی زبان انگلیسی آموزش داده و تعدادی جمله از دیتاست را انتخاب کرده و parse متناظر با آن‌ها را به صورت دستی نوشته و به عنوان فایل تست، قرار می‌دهیم. فایل تست تولید شده در 
+\lr{src/parsing/data/project\_data\_test.conll}
+قابل مشاهده است (شکل\ref{dep_parser_test}).
+\begin{figure}[ht!]
+	\centering\includegraphics[width=\linewidth]{../reports/dep_parser_test.png}
+	\caption{
+		\lr{correct dependency parser}}
+	\label{dep_parser_test}
+\end{figure}
+
+به عنوان مثال مدل برای جمله موجود در شکل\ref{dep_parser} 
+\lr{dependency parser}
+را به طور کامل درست تشخیص داده است.
+\begin{figure}[ht!]
+	\centering\includegraphics[width=\linewidth]{../reports/dep_parser_1.png}
+	\caption{
+		\lr{correct dependency parser}}
+	\label{dep_parser}
+\end{figure}
+
+نکته‌‌ای که در ساخت فایل conll بسیار مهم است و باید بدان توجه شود این است که بین موارد نوشته شده باید یک tab فاصله باشد و در صورت عدم رعایت این فاصله جملات توسط parser به صورت اشتباه خوانده می‌شوند.
 \newpage
 \section{
 	\lr{language model}}
@@ -127,9 +172,9 @@
 	\lr{bidirectional LSTM}
 	و در ادامه یک لایه dense قرار دارد. لایه انتهایی یک لایه dense یا تابع فعال‌سازی softmax می‌باشد که به تعداد همه کلمات موجود نورون دارد. در این لایه به ازای ورودی شبکه مشخص می‌شود چه کلمه باید بعد از عبارت ورودی شبکه بیاید.
 	مدل تعریف شده به صورت شکل\ref{lm}
-	می‌باشد. دقت و loss برای کلاس‌های مختلف به صورت شکل\ref{lm_dep} و شکل\ref{lm_hap} است.
+	می‌باشد. دقت و loss برای کلاس‌های مختلف به صورت شکل\ref{lm_dep} و شکل\ref{lm_hap} است. با توجه به حذف stopwords و punctuation از جمله و کم‌بودن مشکلاتی در جمله بندی مدل آموزش دیده وجود دارد که در جملات ساخته شده به وضوح مشخص است. عدم وجود I , am , are و حروف اضافه‌ای همچون is, thst در زمان تمیز کردن دیتا باعث شده چنین جملاتی به وجود بیایند.
 	
-	\begin{figure}[ht!]
+		\begin{figure}[ht!]
 		\centering\includegraphics[width=\linewidth]{../reports/lm_model.png}
 		\caption{شبکه 
 			\lr{language model}}

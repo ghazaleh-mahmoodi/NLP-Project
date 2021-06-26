@@ -1,8 +1,9 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces شبکه \lr {language model}}}{6}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces شبکه \lr {language model}}}{7}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces شبکه \lr {language model}}}{8}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces \lr {LSTM accuracy and Loss language model on class depression}}}{8}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces \lr {LSTM accuracy and Loss language model on class happiness}}}{9}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces \lr {distilgpt2 Loss language model on class depression}}}{10}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces \lr {distilgpt2 Loss language model on class happiness}}}{11}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces \lr {bert-base-uncased Loss classification}}}{12}{figure.8}%
+\contentsline {figure}{\numberline {1}{\ignorespaces \lr {correct dependency parser}}}{6}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces \lr {correct dependency parser}}}{7}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces \lr {correct dependency parser}}}{7}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces شبکه \lr {language model}}}{8}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces \lr {LSTM accuracy and Loss language model on class depression}}}{9}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces \lr {LSTM accuracy and Loss language model on class happiness}}}{9}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces \lr {distilgpt2 Loss language model on class depression}}}{10}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces \lr {distilgpt2 Loss language model on class happiness}}}{11}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces \lr {bert-base-uncased Loss classification}}}{12}{figure.9}%

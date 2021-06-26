@@ -258,16 +258,16 @@ class Parser(object):
                     head[t] = h
                 for pred_h, gold_h, gold_l, pos in \
                         zip(head[1:], ex['head'][1:], ex['label'][1:], ex['pos'][1:]):
-                        # print("pred_h : ",pred_h)
-                        # print("gold_h : ",gold_h)
+                        
                         assert self.id2tok[pos].startswith(P_PREFIX)
                         pos_str = self.id2tok[pos][len(P_PREFIX):]
                         if (self.with_punct) or (not punct(self.language, pos_str)):
                             UAS += 1 if pred_h == gold_h else 0
                             all_tokens += 1
-                        else:
+                        if pred_h != gold_h :
                             print("pred_h : ",pred_h)
                             print("gold_h : ",gold_h)
+
                 prog.update(i + 1)
         UAS /= all_tokens
         return UAS, dependencies

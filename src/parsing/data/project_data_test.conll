@@ -1,38 +1,3 @@
-1	I	_	PRON	PRP	_	2	nsubj	_	_
-2	fell	_	VERB    VBP	_	0	root	_	_
-3	so	_	ADV	RB	_	4	advmod	_	_
-4	lonely	_	ADJ	RB	_	2	acomp	_	_
-5	and    _	CCONJ	VBG	_	4	cc	_	_
-6	empty	_	ADJ	DT	_	4	conj	_	_
-7	right	_	ADV	NN	_	8	advmod	_	_
-8	now	_	ADV	IN	_	4	advmod	_	_
-9	.	_	PUNCT	.	_	2	punct	_	_
-
-1	I	_	PRON	PRP	_	3	nsubj	_	_
-2	just	_	ADV    RB	_	3	advmod	_	_
-3	need	_	VERB	VBP	_	0	root	_	_
-4	to	_	PART	TO	_	5	aux	_	_
-5	write    _	VERB	VB	_	3	xcomp	_	_
-6	this	_	DET	DT	_	5	dobj	_	_
-7	.	_	PUNCT	.	_	3	punct	_	_
-
-1	my	_	PRON	PRP	_	3	poss	_	_
-2	social	_	ADV    RB	_	3	amod	_	_
-3	life	_	VERB	VBP	_	4	nsubj	_	_
-4	is	_	PART	TO	_	0	root	_	_
-5	nonexistent    _	VERB	VB	_	4	acomp	_	_
-6	.	_	PUNCT	.	_	4	punct	_	_
-
-1	is	_	AUX	VBZ _	0	root	_	_
-2	it	_	PRON	PRP	_	1	nsubj	_	_
-3	possible	_	ADJ	JJ	_	1	acomp	_	_
-4	to	_	PART	TO	_	5	aux	_	_
-5	be	_	AUX	VB	_	1	xcomp	_	_
-6	alone	_	ADJ	JJ	_	5	acomp	_	_
-7	and	_	CCONJ	CC	_	6	cc	_	_
-8	happy	_	ADJ	JJ	_	4	dobj	_	_
-9	?	_	PUNCT	.	_	4	punct	_	_
-
 1	how	_	ADV	WRB	_	4	aux	_	_
 2	do	_	AUX	VBP	_	4	nsubj	_	_
 3	i	_	PRON	PRP	_	4	nsubj	_	_
@@ -41,17 +6,34 @@
 6	mum	_	NOUN	NN	_	4	dobj	_	_
 7	?	_	PUNCT	.	_	4	punct	_	_
 
-1	Do	_	AUX	VBP	_	3	aux	_	_
-2	you	_	PRON	PRP	_	3	nsubj	_	_
-3	deserve	_	VERB	VB	_	0	root	_	_
-4	to	_	PART	TO	_	5	mark	_	_
-5	lose	_	VERB	VB	_	3	xcomp	_	_
-6	some	_	DET	DT	_	7	det	_	_
-7	respect	_	NOUN	NN	_	5	obj	_	_
-8	?	_	PUNCT	.	_	3	punct	_	_
+1   I   _   PRON    PRP _   2   nsubj   _   _
+2   fell    _   VERB    VBP _   0   root    _   _
+3   so  _   ADV RB  _   4   advmod  _   _
+4   lonely  _   ADJ RB  _   2   acomp   _   _
+5   and _   CCONJ   VBG _   4   cc  _   _
+6   empty   _   ADJ DT  _   4   conj    _   _
+7   right   _   ADV NN  _   8   advmod  _   _
+8   now _   ADV IN  _   4   advmod  _   _
+9   .   _   PUNCT   .   _   2   punct   _   _
 
-1	Skipped	_	VERB	VBD	_	0	root	_	_
-2	the	_	DET	DT	_	3	det	_	_
-3	gym	_	NOUN	NN	_	1	obj	_	_
-4	?	_	PUNCT	.	_	1	punct	_	_
+1   my  _   PRON    PRP _   3   poss    _   _
+2   social  _   ADV RB  _   3   amod    _   _
+3   life    _   NOUN    NN  _  5   nsubj   _   _
+4   is  _   AUX VBZ _   5   cop _   _
+5   nonexistent _   ADJ JJ  _   0   root    _   _
+6   .   _   PUNCT   .   _   2   punct   _   _
+
+1	the	_	DET	DT	_	2	det	_	_        
+2	path	_	NOUN	NN	_	0	root	_	_
+3	to	_	PART	TO	_	4	mark	_	_
+4	success	_	NOUN	NN	_	2	obj	_	_
+5	.	_	PUNCT	.	_	2	punct	_	_
+
+1   i   _   PRON    PRP _   3   nsubj   _   _
+2   just    ADV RB  _   3   advmod  _   _
+3   need    _   VERB    VBP _   0   root    _   _
+4   to  _   PART    TO  _   5   aux _   _
+5   write   _   VERB    VB  _   3   xcomp   _   _
+6   this    _   DET DT  _   5   dobj    _   _
+7   .   _   PUNCT   .   _   3   punct   _   _
 

@@ -9,10 +9,10 @@ from keras.preprocessing.text import Tokenizer
 from tensorflow.keras.utils import to_categorical
 from keras.preprocessing.sequence import pad_sequences
 from keras.layers import LSTM, Bidirectional, Embedding, Dense
-
+import dataframe_image as dfi
 import logging
 
-logging.basicConfig(filename='../logs/language_model.log',  level=logging.DEBUG)
+logging.basicConfig(filename='../logs/language_model----------.log',  level=logging.DEBUG)
 labels = {1 : "happiness", 0 : "depression"}
 
 def prepare_data(label_code = 0):
@@ -114,6 +114,8 @@ def generate_sequence(model, tokenizer, seq_length, seed_text, n_words):
 
 def main():
     
+    generated_sen = pd.DataFrame()
+
     for label_code, label_name  in labels.items():
         
         data = prepare_data()
@@ -121,7 +123,7 @@ def main():
         model_path = '../models/language_model/{}_language_model.h5'.format(label_name)
         tokenizer_path = '../models/language_model/{}_tokenizer.pkl'.format(label_name)
         
-        train_language_model(data, label_code, model_path, tokenizer_path)
+        # train_language_model(data, label_code, model_path, tokenizer_path)
 
 
         # load the model
@@ -132,9 +134,7 @@ def main():
         
         print(model_path)
         print(tokenizer_path)
-        # for i in range(5):
-            # select a seed text
-        # seed_text = data[randint(0,len(data))]
+        
         seed_text = "i feel so "
         print("seed_text : " + '\n' + seed_text)
 
@@ -142,7 +142,12 @@ def main():
         # generate new text
         generated = generate_sequence(model, tokenizer, seq_length, seed_text, 10)
         print("generated : ", generated)
+        
+        new_row = pd.Series(data={'class':label_name, 'input_sen':seed_text, 'generate_sequence':generated}, name='x')
+        generated_sen = generated_sen.append(new_row, ignore_index=False)
 
+    generated_sen = pd.DataFrame(generated_sen)
+    dfi.export(generated_sen, '../reports/dataframe.png')
 
 if __name__ == '__main__':
     main()

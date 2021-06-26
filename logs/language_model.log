@@ -1,0 +1,12 @@
+INFO:root:total sequences: 156287
+INFO:root:start training lanhuage model for happiness class
+INFO:root:None
+DEBUG:h5py._conv:Creating converter from 5 to 3
+INFO:root:save ../models/language_model/happiness_language_model.h5
+INFO:root:save ../models/language_model/happiness_tokenizer.pkl
+DEBUG:h5py._conv:Creating converter from 3 to 5
+INFO:root:total sequences: 156287
+INFO:root:start training lanhuage model for depression class
+INFO:root:None
+INFO:root:save ../models/language_model/depression_language_model.h5
+INFO:root:save ../models/language_model/depression_tokenizer.pkl

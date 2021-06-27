@@ -18,7 +18,7 @@ classes: depression, happiness
     conda activate project_env
 ```
 
-To deactivate an active environment, use
+   To deactivate an active environment, use
 
 ```bash   
     conda deactivate
@@ -26,7 +26,7 @@ To deactivate an active environment, use
 3.To run :
 
 ```bash
-sh run.sh or run.bat
+    sh run.sh 
 ```
 
 or 
